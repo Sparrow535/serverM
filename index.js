@@ -3,10 +3,11 @@ const mongoose = require("mongoose");
 const cookieSession = require("cookie-session");
 const passport = require("passport");
 const keys = require("./config/keys");
+const connectDB = require("./config/db");
 require("./models/User");
 require("./services/passport");
 
-mongoose.connect(keys.mongoURI);
+connectDB();
 
 const app = express();
 
@@ -18,6 +19,8 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
+app.use("/user", userRoutes);
+app.use("/task", taskRoutes);
 
 require("./routes/authRoutes")(app);
 
