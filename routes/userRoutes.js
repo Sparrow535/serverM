@@ -3,7 +3,7 @@ const {
   createUser,
   updateUserProfile,
   getUserProfile,
-} = require("../controllers/userController");
+} = require("../controllers/userControllers");
 const router = express.Router();
 
 router.post("/register", createUser);

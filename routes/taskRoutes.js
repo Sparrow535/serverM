@@ -5,7 +5,7 @@ const {
   updateTask,
   deleteTask,
   getTaskReports,
-} = require("../controllers/taskController");
+} = require("../controllers/taskControllers");
 const router = express.Router();
 
 // Middleware to authenticate user (to be implemented)

@@ -1,5 +1,8 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const userRoutes = require("./routes/userRoutes");
+const taskRoutes = require("./routes/taskRoutes");
+const dotenv = require("dotenv");
 const cookieSession = require("cookie-session");
 const passport = require("passport");
 const keys = require("./config/keys");
@@ -7,6 +10,7 @@ const connectDB = require("./config/db");
 require("./models/User");
 require("./services/passport");
 
+dotenv.config();
 connectDB();
 
 const app = express();
