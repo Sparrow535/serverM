@@ -16,6 +16,7 @@ connectDB();
 
 const app = express();
 
+app.use(express.json());
 app.use(
   cookieSession({
     maxAge: 30 * 24 * 60 * 60 * 1000,
