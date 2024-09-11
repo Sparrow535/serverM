@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const userRoutes = require("./routes/userRoutes");
 const taskRoutes = require("./routes/taskRoutes");
+const categoryRoutes = require("./routes/categoryRoutes");
 const dotenv = require("dotenv");
 const cookieSession = require("cookie-session");
 const passport = require("passport");
@@ -21,10 +22,12 @@ app.use(
     keys: [keys.cookieKey],
   })
 );
+
 app.use(passport.initialize());
 app.use(passport.session());
-app.use("/user", userRoutes);
-app.use("/task", taskRoutes);
+app.use("/api/user", userRoutes);
+app.use("/api/task", taskRoutes);
+app.use("/api/category", categoryRoutes);
 
 require("./routes/authRoutes")(app);
 
